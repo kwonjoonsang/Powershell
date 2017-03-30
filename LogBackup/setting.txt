@@ -1,2 +1,0 @@
-[Log]
-Dir=D:\Log
