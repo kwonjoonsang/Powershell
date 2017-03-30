@@ -12,13 +12,11 @@ Param
     $strMail
 )
 
-$strFrom = "LogMan@nexon.co.kr"
-#$strTo = "kjs0624@nexon.co.kr"
-$strTo = "kjs0624@nexon.co.kr", "cookis@nexon.co.kr", "gsohn@nexon.co.kr"
-$strCC = "system_gameweb@nexon.co.kr"
+$strFrom = "Sender Mail Address"
+$strTo = "To Email Address#1", "To Email Address#2"
+$strCC = "CC Email Address"
 $strSubject = "[Check Mail] Gameweb Log Backup Missing List"
 $strBody = $strMail
-$strSMTPServer = "inrelay.nexon.co.kr"
+$strSMTPServer = "SMTP Address"
 
-#Send-MailMessage -From $strFrom -To $strTo -Subject $strSubject -Body $strBody -SmtpServer $strSMTPServer
 Send-MailMessage -From $strFrom -To $strTo -Cc $strCC -Subject $strSubject -Body $strBody -SmtpServer $strSMTPServer
