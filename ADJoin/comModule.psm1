@@ -4,6 +4,7 @@
 # Usage
 #		- AD Join Common Module
 # Parameter
+#       - strUser : AD Join User
 # **************************************************************************************************
 #
 Function Get-Requirement
@@ -47,6 +48,5 @@ Function Modify-LocalGroup
     ForEach($strGroup in $strGroups)
     {
         $strADSI.ADD("WinNT://$strGroup")
-        Write-Host $strGroup
     }
 }
