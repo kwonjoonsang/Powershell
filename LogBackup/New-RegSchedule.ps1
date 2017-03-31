@@ -1,15 +1,16 @@
 ﻿#
 # **************************************************************************************************
 # Script Name : New-RegSchedule.ps1
-# 용도
-#		- 스케쥴러에 새로운 스케쥴을 등록
-#		- Run-Logbackup.ps1을 호출하여 ClientTime.txt에 등록된 Web 서버들에 대해 백업을 수행
-# 매개변수
-#                - strIP : 스케쥴을 등록할 서버 IP
-#		- strBackupTime : Backup Time
-#                - strBackupName : 스케쥴러에 등록될 이름
-#                - strPath : 스케쥴러에서 실행될 기본 위치
-#                - strExePowershell : 수행할 Powershell Script
+# Usage
+#		- Register Windows Scheduler
+ 
+# 
+# Parameter
+#       - strIP : Server IP
+#       - strBackupTime : Backup Time
+#       - strBackupName : Schedule Name
+#       - strPath : 
+#       - strExePowershell : PowerShell Script
 # **************************************************************************************************
 #
 Param
