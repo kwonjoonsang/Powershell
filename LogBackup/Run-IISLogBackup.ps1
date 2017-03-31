@@ -1,15 +1,15 @@
 #
 # **************************************************************************************************
 # Script Name : Run-IISLogBackup.ps1
-# ?©ë„
-#		- Client Web Server Log Backup
-#		- L4-Check, L4_Check Siteë¥??œì™¸???¬ì´?¸ì— ?€??Log Backup ?˜í–‰ 
-#                - Log File??Backup Serverë¡?Copy ??Zip ?•ì¶•
-# ë§¤ê°œë³€??
-#		- strServerIP : Web Server IP
-#		- strAllGbn
-#			1(Default) : 1????Log Backup
-#			2 : ?„ì²´ Log Backup
+# Usage
+#		- IIS Log Backup
+# 
+# Parameter
+#       - strServerIP : Get Log Server IP 
+#       - strDrive : 
+#       - strAllGbn : 
+#                       1 -> Specified Server Log
+#                       2 -> All Server Log
 # **************************************************************************************************
 #
 Param
@@ -51,14 +51,7 @@ ForEach ($strSite in $strSites)
 
         ForEach ($strLogList in $strLogLists)
         {
-            Write-Host "log"
-            Write-Host $strLogDir
-            Write-Host $strLogList
-            Write-Host $strCLogDir
             Set-FileCopy -LogDir $strLogDir -CLogDir $strCLogDir -LogList $strLogList
-            #.\Run-IISDBReg.ps1 -strServerNM $strHostname -strDomainNM $strSite.Name -strCLogDir $strCLogDir -strLogList $strLogList
-            #$strBLogList = Get-BDayLog -LogList $strLogList
-            #Set-Compress -CLogDir $strCLogDir -LogList $strBLogList
         }
     }
 }

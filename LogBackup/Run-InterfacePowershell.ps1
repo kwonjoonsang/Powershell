@@ -1,13 +1,17 @@
 #
 # **************************************************************************************************
 # Script Name : Run-InterfacePowershell.ps1
-# ?©ë„
-#		- ServerInfo.txt ?Œì¼???½ì–´ êµ¬ë¶„?ì— ?°ë¼ Script ?¸ì¶œ
-# ë§¤ê°œë³€??
-#		- strGbn
-#                       1 : Run-IISLogBackup.ps1
-#                       2 : Get-DeleteLogList.ps1
-#                       3 : Run-LogDelete.ps1
+# Usage
+#		- Interface Program
+# 
+# Parameter
+#       - strScript :
+#						1 -> Specified Server Log Backup
+#						2 -> Get Delete Log List
+#						3 -> Delete Log
+#						4 -> Send Mail
+#						5 -> All Server Log Backup
+#						6 -> IIS Log Compress 
 # **************************************************************************************************
 #
 Param
@@ -50,25 +54,15 @@ ForEach ($strServerInfo In $arrServerInfo)
 	}
     ElseIf ($strScript -eq 5)
     {
-        #Write-Host $strServerIP
         .\Run-IISLogBackup.ps1 -strServerIP $strServerIP -strAllGbn 2 -strDrive $strDrive
     }
     ElseIf ($strScript -eq 6)
     {
-        #Write-Host $strServerIP + " " + $strDrive
         .\Run-LogCompress.ps1 -strServerIP $strServerIP -strDrive $strDrive
-    }
-    ElseIf ($strSCript -eq 7)
-    {
-        .\Run-IISDBReg.ps1 -strServerIP $strServerIP -strDrive $strDrive
     }
 }
 
 If ($strScript -eq 4)
 {
     .\Run-SendMail.ps1 -strMail $strMail
-}
-ElseIf ($strSCript -eq 8)
-{
-    .\Run-IISDBParsing.ps1
 }

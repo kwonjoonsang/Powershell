@@ -1,15 +1,12 @@
 ﻿#
 # **************************************************************************************************
-# Script Name : Run-IISLogBackup.ps1
-# ?⑸룄
-#		- Client Web Server Log Backup
-#		- L4-Check, L4_Check Site瑜??쒖쇅???ъ씠?몄뿉 ???Log Backup ?섑뻾 
-#                - Log File??Backup Server濡?Copy ??Zip ?뺤텞
-# 留ㅺ컻蹂??
-#		- strServerIP : Web Server IP
-#		- strAllGbn
-#			1(Default) : 1????Log Backup
-#			2 : ?꾩껜 Log Backup
+# Script Name : Run-LogCompress.ps1
+# Usage
+#		- Log Compress
+# 
+# Parameter
+#       - strServerIP : Get Log Server IP
+#       - strDrive : 
 # **************************************************************************************************
 #
 Param

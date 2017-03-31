@@ -1,4 +1,16 @@
-﻿Import-Module .\CommonFunction.psm1
+﻿#
+# **************************************************************************************************
+# Script Name : Run-AllBackup.ps1
+# Usage
+#		- Get Log Delete List 
+# 
+# Parameter
+#       - strServerIP : Get Log Server IP
+#       - intDay : 
+#       - strDrive : 
+# **************************************************************************************************
+#
+Import-Module .\CommonFunction.psm1
 
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted
 
@@ -16,15 +28,14 @@ ForEach ($strServerInfo In $arrServerInfo)
 
     $seeCredential = Get-WebCredential
     $sesConnection = New-PSSession -ComputerName $strServerIP -Credential $seeCredential
-    Write-Host $strServerIP
+
     $strSites = Get-IISWebsite -sesConnection $sesConnection
-    Write-Host $strServerIP
+
     ForEach ($strSite in $strSites)
     {
         Write-Host $strSite.Name
         If (($strSite.Name -ne "L4_Check") -and ($strSite.Name -ne "L4-Check"))
         {
-            Write-Host "test3"
             $strRDir = $strSite.LogFile.Directory
 	        $strRLogDir = $strRDir + "\W3SVC" + $strSite.ID
             $strLogDir = "\\" + $strServerIP + "\" + $strRDir.Replace(':', '$') + "\W3SVC" + $strSite.ID
@@ -36,10 +47,8 @@ ForEach ($strServerInfo In $arrServerInfo)
 
             ForEach ($strLogList in $strLogLists)
             {
-                Write-Host $strLogList
                 Set-FileCopy -LogDir $strLogDir -CLogDir $strCLogDir -LogList $strLogList
                 .\Run-IISDBReg.ps1 -strServerNM $strHostname -strDomainNM $strSite.Name -strCLogDir $strCLogDir -strLogList $strLogList
-                #Set-Compress -CLogDir $strCLogDir -LogList $strLogList
             }
         }
     }
