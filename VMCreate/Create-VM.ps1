@@ -1,11 +1,23 @@
-﻿Param
+﻿#
+# **************************************************************************************************
+# Script Name : Create-VM.ps1
+# Usage
+#		- Create the Hyper-V's VM 
+# 
+# Parameter
+#       - strGbn
+#           Web -> Web Server
+#           DB -> WebDB Server 
+# **************************************************************************************************
+#
+Param
 (
-    #strGbn : Web, DB
     [Parameter(Mandatory=$true)]
     [String] $strGbn
 )
 
 Import-Module .\CommonFunction.psm1
+
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted
 
 If ($strGbn -eq "Web")
