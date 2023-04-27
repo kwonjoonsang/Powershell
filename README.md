@@ -14,7 +14,8 @@ Windows 관리하면서 사용한 Powershell 모음입니다.
   ```
 
 ## LogBackup
+> Log Backup, Log Delete, Email 전송등 Log 관리할 수 있는 Script
 
 
 ## VMCreate
-
+> Hyper-V 가상화 환경에서 VM을 Create하는 Script
